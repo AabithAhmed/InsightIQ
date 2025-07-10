@@ -1,0 +1,39 @@
+import sys
+sys.path.append('../')  # To access utils folder from notebooks/
+
+
+import pandas as pd
+
+# Load dataset
+df = pd.read_csv('data/telco_customer_churn.csv')
+
+# Basic info
+print(df.shape)
+print(df.dtypes)
+print(df.isnull().sum())
+
+# Convert 'TotalCharges' to numeric
+df['TotalCharges'] = pd.to_numeric(df['TotalCharges'], errors='coerce')
+
+# Drop rows with missing TotalCharges
+df = df.dropna(subset=['TotalCharges'])
+
+# Drop customerID (not useful for prediction)
+df.drop('customerID', axis=1, inplace=True)
+
+# Encode target variable
+df['Churn'] = df['Churn'].map({'Yes': 1, 'No': 0})
+
+df.to_csv("data/cleaned_telco.csv", index=False)
+
+
+
+# Import the function from your utils module
+from utils.preprocessing import encode_categoricals
+
+# Use the function to encode all categorical columns
+df, label_encoders = encode_categoricals(df)
+
+# Optional: Check if it's encoded
+print(df.head())
+
