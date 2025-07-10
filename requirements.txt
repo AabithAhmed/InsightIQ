@@ -1,0 +1,12 @@
+streamlit>=1.20.0
+pandas
+numpy
+seaborn
+matplotlib
+plotly
+scikit-learn
+xgboost
+lightgbm
+catboost
+shap
+dtale
