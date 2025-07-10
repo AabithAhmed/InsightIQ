@@ -1,6 +1,6 @@
-# ChurnGuard: AI-Powered AutoML + SHAP + Visual Analytics
+# InsightIQ: AI-Powered AutoML + SHAP + Visual Analytics
 
-ChurnGuard is a no-code, AutoML-powered dashboard built with Streamlit that allows users to:
+InsightIQ is a no-code, AutoML-powered dashboard built with Streamlit that allows users to:
 - Upload any CSV dataset
 - Automatically detect target columns and train ML models (RandomForest, XGBoost, LightGBM, CatBoost)
 - View beautiful, interactive charts, pies, histograms, and business analytics
@@ -22,22 +22,26 @@ ChurnGuard is a no-code, AutoML-powered dashboard built with Streamlit that allo
 
 ## 📁 Folder Structure
 ```
-ChurnGuard/
-├── dashboard/
-│   ├── streamlit_app.py       # Main Streamlit dashboard app
-│   ├── check_model_path.py    # Model path checker (optional)
-│   └── churn_model.pkl        # Trained model (optional)
-├── data/
+InsightIQ/
+│
+├── dashboard/                 # Streamlit app
+│   └── streamlit_app.py
+│
+├── data/                     # Raw and cleaned datasets
 │   ├── telco_customer_churn.csv
 │   └── cleaned_telco.csv
-├── models/
-│   └── churn_model.pkl        # Pickled trained model
-├── notebooks/
-│   ├── 01_EDA_and_Cleaning.ipynb
-│   ├── 02_EDA_and_Visualization.ipynb
-│   ├── 03_SHAP_Explainability.ipynb
-│   └── 04_Sentiment_Feature.ipynb
-└── requirements.txt
+│
+├── notebooks/                # Jupyter notebooks (above)
+│   ├── 01_data_loading_and_cleaning.ipynb
+│   ├── 02_eda_and_visuals.ipynb
+│   └── 03_model_training_and_shap.ipynb
+│
+├── utils/                    # Helper functions
+│   └── preprocessing.py
+│
+├── requirements.txt
+└── README.md
+
 ```
 
 ## 🚀 Running the App
